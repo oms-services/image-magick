@@ -1,8 +1,8 @@
 # _ImageMagick_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-[![Build Status](https://travis-ci.com/heaptracetechnology/microservice-imagemagick.svg?branch=master)](https://travis-ci.com/heaptracetechnology/microservice-imagemagick)
-[![codecov](https://codecov.io/gh/heaptracetechnology/microservice-imagemagick/branch/master/graph/badge.svg)](https://codecov.io/gh/heaptracetechnology/microservice-imagemagick)
+[![Build Status](https://travis-ci.com/omg-services/image-magick.svg?branch=master)](https://travis-ci.com/omg-services/image-magick)
+[![codecov](https://codecov.io/gh/omg-services/image-magick/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/image-magick)
 
 An OMG service for ImageMagick, it is for displaying, converting, and editing raster image and vector image files.
 
