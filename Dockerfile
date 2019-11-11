@@ -32,12 +32,12 @@ RUN go get gopkg.in/gographics/imagick.v2/imagick
 
 RUN go get github.com/gorilla/mux
 
-WORKDIR /go/src/github.com/heaptracetechnology/microservice-imagemagick/imagemagick
+WORKDIR /go/src/github.com/oms-services/image-magick/imagemagick
 
-ADD . /go/src/github.com/heaptracetechnology/microservice-imagemagick
+ADD . /go/src/github.com/oms-services/image-magick
 
-RUN go install github.com/heaptracetechnology/microservice-imagemagick
+RUN go install github.com/oms-services/image-magick
 
-ENTRYPOINT microservice-imagemagick
+ENTRYPOINT imagemagick
 
 EXPOSE 3000
