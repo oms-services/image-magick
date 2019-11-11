@@ -1,7 +1,7 @@
-omg: 1
+oms: 1
 lifecycle:
   startup:
-    command: ["microservice-imagemagick"]
+    command: ['imagemagick']
 info:
   version: 1.0.0
   title: Image Magick
@@ -37,7 +37,7 @@ actions:
         in: requestBody
         required: true
         help: The width for resized image.
-    output: 
+    output:
       type: object
       contentType: application/json
       properties:
@@ -63,7 +63,7 @@ actions:
         in: requestBody
         required: true
         help: The input image base64 data.
-    output: 
+    output:
       type: object
       contentType: application/json
       properties:
@@ -104,7 +104,7 @@ actions:
         in: requestBody
         required: true
         help: The width to extend image.
-    output: 
+    output:
       type: object
       contentType: application/json
       properties:
@@ -118,7 +118,7 @@ actions:
           help: Http status code.
           type: int
   transparent:
-    help: Transparent the selected colour from image. 
+    help: Transparent the selected colour from image.
     http:
       port: 3000
       method: post
@@ -201,7 +201,9 @@ actions:
         type: list
         in: requestBody
         required: true
-        help: The input for customize image with multiple image process operations 'oilpaint','extend','resize','reflect'.
+        help:
+          The input for customize image with multiple image process operations
+          'oilpaint','extend','resize','reflect'.
     output:
       type: object
       contentType: application/json

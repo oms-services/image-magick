@@ -5,7 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	result "github.com/heaptracetechnology/microservice-imagemagick/result"
+	result "github.com/oms-services/image-magick/result"
 	"gopkg.in/gographics/imagick.v2/imagick"
 	"net/http"
 	"os"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	route "github.com/heaptracetechnology/microservice-imagemagick/route"
+	route "github.com/oms-services/image-magick/route"
 	"log"
 	"net/http"
 )

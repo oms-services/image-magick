@@ -2,7 +2,7 @@ package route
 
 import (
     "github.com/gorilla/mux"
-    imagemagick "github.com/heaptracetechnology/microservice-imagemagick/imagemagick"
+    imagemagick "github.com/oms-services/image-magick/imagemagick"
     "log"
     "net/http"
 )

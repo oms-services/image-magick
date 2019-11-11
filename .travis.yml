@@ -11,11 +11,12 @@ before_install:
   - wget https://github.com/ImageMagick/ImageMagick6/archive/6.9.10-11.tar.gz
   - tar xvzf 6.9.10-11.tar.gz
   - cd ImageMagick*
-  - ./configure --without-magick-plus-plus --without-perl --disable-openmp --with-gvc=no --disable-docs
+  - ./configure --without-magick-plus-plus --without-perl --disable-openmp
+    --with-gvc=no --disable-docs
   - sudo make -j$(nproc)
   - sudo make install
   - sudo ldconfig /usr/local/lib
-  - cd /home/travis/gopath/src/github.com/heaptracetechnology/microservice-imagemagick
+  - cd /home/travis/gopath/src/github.com/oms-services/image-magick
   - go get -t -v ./...
 
 script:
