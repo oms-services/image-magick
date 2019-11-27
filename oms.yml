@@ -1,18 +1,19 @@
 oms: 1
-lifecycle:
-  startup:
-    command: ['imagemagick']
 info:
   version: 1.0.0
   title: Image Magick
   description: This is a image-magick service
   contact:
-    name: Rohit Shetty
-    url: https://github.com/ht68rohit
-    email: rohits@heaptrace.com
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
+lifecycle:
+  startup:
+    command:
+      - imagemagick
 actions:
   resize:
     help: Resize image.
@@ -201,7 +202,7 @@ actions:
         type: list
         in: requestBody
         required: true
-        help:
+        help: >-
           The input for customize image with multiple image process operations
           'oilpaint','extend','resize','reflect'.
     output:
