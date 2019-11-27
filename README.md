@@ -1,89 +1,171 @@
-# _ImageMagick_ OMG Microservice
+# _Image Magick_ Open Microservice
 
-[![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-[![Build Status](https://travis-ci.com/omg-services/image-magick.svg?branch=master)](https://travis-ci.com/omg-services/image-magick)
-[![codecov](https://codecov.io/gh/omg-services/image-magick/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/image-magick)
+> Wrapper for ImageMagick
 
-An OMG service for ImageMagick, it is for displaying, converting, and editing raster image and vector image files.
+[![Open Microservice Specification Version](https://img.shields.io/badge/Open%20Microservice-1.0-477bf3.svg)](https://openmicroservices.org) [![Open Microservices Spectrum Chat](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/open-microservices) [![Open Microservices Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/oms-services/.github/blob/master/CODE_OF_CONDUCT.md) [![Open Microservices Commitzen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Direct usage in [Storyscript](https://storyscript.io/):
+## Introduction
 
-##### Resize image
-```coffee
->>> imagemagick resize input:'base64image' height:'resizeHight' width:'resizeWidth'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
+This project is an example implementation of the [Open Microservice Specification](https://openmicroservices.org), a standard originally created at [Storyscript](https://storyscript.io) for building highly-portable "microservices" that expose the events, actions, and APIs inside containerized software.
+
+## Getting Started
+
+The `oms` command-line interface allows you to interact with Open Microservices. If you're interested in creating an Open Microservice the CLI also helps validate, test, and debug your `oms.yml` implementation!
+
+See the [oms-cli](https://github.com/microservices/oms) project to learn more!
+
+### Installation
+
 ```
-##### Reflect image
-```coffee
->>> imagemagick reflect input:'base64image'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
-```
-##### Extend image
-```coffee
->>> imagemagick extend input:'base64image' height:'extendHight' width:'extendHight' backgroundColour:'colourName'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
-```
-##### Transparent image
-```coffee
->>> imagemagick transparent input:'base64image' transparentColour:'transparentColour'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
-```
-##### Format image
-```coffee
->>> imagemagick format input:'base64image' inputExtension:'inputImageExtension' outputExtension:'outputImageExtension'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
-```
-##### OilPaint image
-```coffee
->>> imagemagick oilpaint input:'base64image' radius:'radius'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
-```
-##### Custom image
-```coffee
->>> imagemagick custom input:'base64image' customizeInput:'[{"name":"resize","height": 400,"width": 500},{"name":"extend","backgroundColour": "red","height": 700,"width": 600},{"name":"reflect"},{"name":"oilpaint","radius":2.6}]'
-{"success":"true/false","output":"Base64 output image","statusCode":"HTTPstatusCode"}
+npm install -g @microservices/oms
 ```
 
-Curious to [learn more](https://docs.storyscript.io/)?
+## Usage
 
-✨🍰✨
+### Open Microservices CLI Usage
 
-## Usage with [OMG CLI](https://www.npmjs.com/package/omg)
+Once you have the [oms-cli](https://github.com/microservices/oms) installed, you can run any of the following commands from within this project's root directory:
 
-##### Resize image
-```shell
-$ omg run resize -a input=<IMAGE_BASE64_DATA> -a height=<HEIGHT> -a width=<WIDTH>
-```
-##### Reflect image
-```shell
-$ omg run reflect -a input=<IMAGE_BASE64_DATA>
-```
-##### Extend image
-```shell
-$ omg run extend -a input=<IMAGE_BASE64_DATA> -a height=<HEIGHT> -a width=<WIDTH> -a backgroundColour=<COLOUR_NAME>
-```
-##### Transparent image
-```shell
-$ omg run transparent -a input=<IMAGE_BASE64_DATA> -a transparentColour=<COLOUR_NAME>
-```
-##### Format image
-```shell
-$ omg run format -a input=<IMAGE_BASE64_DATA> -a inputExtension=<INPUT_EXTENSION> -a outputExtension=<OUTPUT_EXTENSION>
-```
-##### OilPaint image
-```shell
-$ omg run oilpaint -a input=<IMAGE_BASE64_DATA> -a radius=<RADIUS>
-```
-##### Custom image
-```shell
-$ omg run custom -a input=<IMAGE_BASE64_DATA> -a customizeInput=<CUSTOMIZE_INPUT>
-```
-##### Custom image Example
-```
-$ omg run custom -a input=<IMAGE_BASE64_DATA> -a customizeInput='[{"name":"resize","height": 400,"width": 500},{"name":"extend","backgroundColour": "red","height": 700,"width": 600},{"name":"reflect"},{"name":"oilpaint","radius":2.6}]'
+#### Actions
+
+##### resize
+
+> Resize image.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+| height | `int` | `true` | None | The height for resized image. |
+| width | `int` | `true` | None | The width for resized image. |
+
+
+``` shell
+oms run resize \ 
+    -a input='*****' \ 
+    -a height='*****' \ 
+    -a width='*****'
 ```
 
-**Note**: The OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
+##### reflect
 
-## License
-[MIT License](https://github.com/omg-services/imagemagick/blob/master/LICENSE).
+> Reflect image.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+
+
+``` shell
+oms run reflect \ 
+    -a input='*****'
+```
+
+##### extend
+
+> Extend image size with background colour.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+| backgroundColour | `string` | `true` | None | The colour for extended image. |
+| height | `int` | `true` | None | The height to extend image. |
+| width | `int` | `true` | None | The width to extend image. |
+
+
+``` shell
+oms run extend \ 
+    -a input='*****' \ 
+    -a backgroundColour='*****' \ 
+    -a height='*****' \ 
+    -a width='*****'
+```
+
+##### transparent
+
+> Transparent the selected colour from image.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+| transparentColour | `string` | `true` | None | The colour from image to transparent. |
+
+
+``` shell
+oms run transparent \ 
+    -a input='*****' \ 
+    -a transparentColour='*****'
+```
+
+##### format
+
+> Convert image from one format to another.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+| inputExtension | `string` | `true` | None | The input image format. |
+| outputExtension | `string` | `true` | None | The output image format. |
+
+
+``` shell
+oms run format \ 
+    -a input='*****' \ 
+    -a inputExtension='*****' \ 
+    -a outputExtension='*****'
+```
+
+##### custom
+
+> Customize the image with multiple image editing operations.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+| customizeInput | `list` | `true` | None | The input for customize image with multiple image process operations 'oilpaint','extend','resize','reflect'. |
+
+
+``` shell
+oms run custom \ 
+    -a input='*****' \ 
+    -a customizeInput='*****'
+```
+
+##### oilpaint
+
+> Applies a special effect filter that simulates an oil painting.
+##### Action Arguments
+
+| Argument Name | Type | Required | Default | Description |
+|:------------- |:---- |:-------- |:--------|:----------- |
+| input | `string` | `true` | None | The input image base64 data. |
+| radius | `float` | `true` | None | The radius of the circular neighborhood. |
+
+
+``` shell
+oms run oilpaint \ 
+    -a input='*****' \ 
+    -a radius='*****'
+```
+
+## Contributing
+
+All suggestions in how to improve the specification and this guide are very welcome. Feel free share your thoughts in the Issue tracker, or even better, fork the repository to implement your own ideas and submit a pull request.
+
+[![Edit image-magick on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/oms-services/image-magick)
+
+This project is guided by [Contributor Covenant](https://github.com/oms-services/.github/blob/master/CODE_OF_CONDUCT.md). Please read out full [Contribution Guidelines](https://github.com/oms-services/.github/blob/master/CONTRIBUTING.md).
+
+## Additional Resources
+
+* [Install the CLI](https://github.com/microservices/oms) - The OMS CLI helps developers create, test, validate, and build microservices.
+* [Example OMS Services](https://github.com/oms-services) - Examples of OMS-compliant services written in a variety of languages.
+* [Example Language Implementations](https://github.com/microservices) - Find tooling & language implementations in Node, Python, Scala, Java, Clojure.
+* [Storyscript Hub](https://hub.storyscript.io) - A public registry of OMS services.
+* [Community Chat](https://spectrum.chat/open-microservices) - Have ideas? Questions? Join us on Spectrum.

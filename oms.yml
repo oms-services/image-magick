@@ -2,7 +2,7 @@ oms: 1
 info:
   version: 1.0.0
   title: Image Magick
-  description: This is a image-magick service
+  description: Wrapper for ImageMagick
   contact:
     name: Open Microservices
     url: 'https://openmicroservices.org'
@@ -203,8 +203,7 @@ actions:
         in: requestBody
         required: true
         help: >-
-          The input for customize image with multiple image process operations
-          'oilpaint','extend','resize','reflect'.
+          The input for customize image with multiple image process operations 'oilpaint','extend','resize','reflect'.
     output:
       type: object
       contentType: application/json
